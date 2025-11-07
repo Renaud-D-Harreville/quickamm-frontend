@@ -29,59 +29,6 @@ async function fetchData() {
 
 fetchData();
 
-/*
-const question = ref({
-      topics: [
-        "AMM",
-        "La profession d’AMM, son environnement géographique, institutionnel et réglementaire",
-        "prérogatives",
-        "Prérogatives d'exercice des AMM en milieu enneigé",
-        "Milieu montagnard enneigé",
-        "Probatoire AMM"
-      ],
-      question: "Quelles sont les prérogatives d'exercice d'un Accompagnateur en Moyenne Montagne (AMM) diplômé ayant validé l'option milieu montagnard enneigé ?",
-      image_path: null,
-      answers: [
-        {
-          text: "Encadrer des randonnées en raquettes à neige sur des terrains vallonnés en moyenne montagne.",
-          is_true: true,
-          explanation: "Les AMM sont autorisés à encadrer des randonnées en raquettes à neige sur des terrains enneigés faciles, vallonnés, excluant tout accident de terrain important.",
-          checked: false
-        },
-        {
-          text: "Conduire des groupes sur des itinéraires de ski de randonnées en haute montagne.",
-          is_true: false,
-          explanation: "Les AMM ne sont pas habilités à encadrer des activités de ski de randonnées en haute montagne, cette prérogative étant réservée aux guides de haute montagne et aux moniteurs de ski.",
-          checked: false
-        },
-        {
-          text: "Organiser des sorties de ski de randonnée sur des pentes raides.",
-          is_true: false,
-          explanation: "Les AMM ne sont pas autorisés à encadrer le ski de randonnée, surtout sur des pentes raides, cette activité relevant des compétences des guides de haute montagne.",
-          checked: false
-        },
-        {
-          text: "Organiser des sorties de ski de randonnée sur des pentes douces.",
-          is_true: false,
-          explanation: "Les AMM ne sont pas autorisés à encadrer le ski de randonnée, même sur pentes douces, cette activité relevant des compétences des guides de haute montagne ou des moniteurs de ski alpin.",
-          checked: false
-        }
-      ],
-      description: "Le titulaire du diplôme d'Etat d'alpinisme - accompagnateur en moyenne montagne, relevant de la filière alpinisme filière, atteste, pour tout public, des compétences de son titulaire pour encadrer, conduire, animer, enseigner, entraîner en sécurité des personnes ou des groupes en moyenne montagne, à l'exclusion des zones glaciaires et des zones de rochers, canyons, terrains nécessitant pour la progression l'utilisation du matériel ou des techniques de l'alpinisme. Le titulaire du diplôme d'Etat d'alpinisme - accompagnateur en moyenne montagne peut également :\n1° Animer et enseigner les connaissances et les compétences propres à la pratique de l'activité et au milieu ;\n2° Conduire des randonnées en sécurité pour tout type de public en situation isolée ;\n3° En fonction de l'option choisie :\na) Pour l'unité de formation optionnelle « concevoir, conduire en sécurité et évaluer une randonnée en milieu montagnard enneigé pour tout public », il peut exercer sur des reliefs vallonnés excluant tout accident de terrain important. Notons que l'encadrement de toutes les disciplines du ski et des activités dérivées est exclu à l'exception de la raquette à neige ;\nb) Pour l'unité de formation optionnelle « concevoir, conduire en sécurité et évaluer une randonnée en milieu montagnard tropical et équatorial en période de fortes précipitations, pour tout public », il peut exercer dans des régions à climat tropical et équatorial sur des terrains escarpés et détrempés en périodes, fixées par l'autorité publique compétente, de fortes précipitations.\nLe diplôme d'Etat d'alpinisme - accompagnateur en moyenne montagne est délivré dans l'une ou l'autre des deux options « concevoir, conduire en sécurité et évaluer une randonnée en milieu montagnard enneigé pour tout public » et « concevoir, conduire en sécurité et évaluer une randonnée en milieu montagnard tropical et équatorial en période de fortes précipitations, pour tout public » par le service national des métiers de l'encadrement du ski et de l'alpinisme.",
-      references: [
-        {
-          reference_type: "url",
-          url: "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000048881009",
-          description: "Legifrance : Arrêté du 19 décembre 2023 relatif à la formation spécifique du diplôme d'Etat d'alpinisme - accompagnateur en moyenne montagne"
-        },
-        {
-          reference_type: "url",
-          url: "https://sites.google.com/view/probaamm/environnement-professionnel-amm",
-          description: "Environnement professionnel AMM - Google Sites"
-        }
-      ]
-    })
-*/
 const isValidateState = ref(false)
 const isFormCorrect = ref(true)
 
@@ -123,7 +70,7 @@ function showHideLongExplanation() {
         } else {
             collapseText.classList.add("show");
             previewText.style.display = "none"; // Masque l'aperçu
-            toggleButton.innerText = "Lire moins";
+            toggleButton.innerHTML = "Lire moins";
         }
     });
 }

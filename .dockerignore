@@ -1,0 +1,20 @@
+# Files to ignore when copying to Docker.
+# This speeds up the build and keeps the container clean.
+
+# Git history
+.git
+.gitignore
+
+# Local dependencies
+node_modules
+
+# Local build output (we build this *inside* the container)
+dist
+
+# Local environment variables
+.env*
+
+# IDE / OS files
+.vscode
+.idea
+*.DS_Store
