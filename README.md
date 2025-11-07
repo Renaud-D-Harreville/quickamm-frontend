@@ -1,38 +1,87 @@
-# quickamm-frontend
+# 🚀 quickamm-frontend
 
-This template should help get you started developing with Vue 3 in Vite.
+Quickamm is a smart Multiple Choice Question (MCQ) platform designed to help candidates prepare for the French "Accompagnateur en montagne" (AEM) hiking guide diploma.
 
-## Recommended IDE Setup
+here is the deployed app running using Google Cloud Platform (GCP): **[Quick AMM website](https://quickamm-frontend-615761139088.europe-west1.run.app/)**
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+---
 
-## Recommended Browser Setup
+### ⛰️ The Challenge
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+The "Accompagnateur en montagne" (AEM) diploma requires candidates to pass an MCQ test at the very beginning of the course. Most existing preparation tools use static questions, where the questions and answers are always in the same order.
 
-## Customize configuration
+This leads to a common problem: **candidates start to memorize the *pattern* of the answers rather than *understanding* the concepts.**
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+### ✨ Our Solution: Quickamm
 
-## Project Setup
+Quickamm was built to solve this exact problem by focusing on two core principles: smart randomization and detailed explanations.
 
-```sh
-npm install
-```
+It began as a simple command-line tool (hence the name "Quick"), but has been rebuilt as a modern web application to help more candidates.
 
-### Compile and Hot-Reload for Development
+### 🎯 Key Features
 
-```sh
-npm run dev
-```
+* **🧠 Smart Randomization**
+    To prevent "learning the test" by heart, Quickamm dynamically builds every question:
+    * **Random Answer Order:** The order of potential answers is shuffled every time.
+    * **Dynamic Answer Pool:** The algorithm pulls from a large bank of possible answers (often more than 4) and selects at least one correct answer and several incorrect ones (following the diploma's rules).
+    * **Massive Variety:** This approach creates a huge number of unique question combinations, making it highly unlikely you'll see the exact same question twice.
 
-### Compile and Minify for Production
+* **📚 Detailed Explanations**
+    Passing the test isn't just about getting the right answer; it's about knowing *why* it's right.
+    * **Question Explanations:** After you answer, you get a detailed explanation for the question as a whole.
+    * **Per-Answer Feedback:** Each individual answer (both correct and incorrect) also includes a short explanation.
+    * **Go Deeper:** To encourage further learning and verify the information, explanations include references so you can read more about the topics.
 
-```sh
-npm run build
-```
+---
+
+
+### 🏗️ Project Architecture
+
+This project is split into a separate frontend and backend API.
+
+* **Frontend (This Repo):** `quickamm-frontend`
+* **Backend (API):** [`quickamm-fastapi`](https://github.com/Renaud-D-Harreville/quickamm-fastapi)
+* **Original Project (Archived):** The first version was a monolithic Django project, which you can find [here](https://github.com/Renaud-D-Harreville/quickamm).
+
+---
+
+### ⚙️ Getting Started
+
+To run this project locally:
+
+1.  **Clone the repository:**
+    ```sh
+    git clone [https://github.com/Renaud-D-Harreville/quickamm-frontend.git](https://github.com/Renaud-D-Harreville/quickamm-frontend.git)
+    cd quickamm-frontend
+    ```
+
+2.  **Install dependencies:**
+    ```sh
+    npm install
+    ```
+
+3.  **Run the development server:**
+    ```sh
+    npm run dev
+    ```
+    
+    **Or you could also Compile and Minify for Production**
+
+    ```sh
+    npm run build
+    ```
+
+4.  The application will be available at `http://localhost:5173`.
+
+*Note: You will also need to have the [quickamm-fastapi](https://github.com/Renaud-D-Harreville/quickamm-fastapi) backend running locally for the frontend to fetch data.*
+
+
+---
+
+### 🤝 Contributing
+
+Contributions are welcome! If you have a feature request, bug report, or want to add new questions, please feel free to:
+
+* Open an issue to discuss your idea.
+* Fork the repository and submit a pull request.
+
