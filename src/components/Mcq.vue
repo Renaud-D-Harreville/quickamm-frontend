@@ -143,7 +143,9 @@ function showHideLongExplanation() {
         <span>{{ question.description }}</span>
         <div v-if="question.references">
             <h2> Réferences : </h2>
-            <p v-for="reference in question.references"><b>{{ reference.url }}</b> : <i>{{ reference.description }}</i></p>
+            <p v-for="reference in question.references">
+              <b>{{ reference.description }}</b> : <i><a :href="`${reference.url}`" target="_blank" rel="noopener">{{ reference.url }}</a></i>
+            </p>
         </div>
       </div>
       <!-- Texte aperçu (visible par défaut) -->
