@@ -12,6 +12,7 @@ import Index from './components/Index.vue'
     <main>
       <Index />
     </main>
+    <p></p>
     <footer>
         © 2023 Quick-AMM
     </footer>

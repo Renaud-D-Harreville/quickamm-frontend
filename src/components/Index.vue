@@ -5,11 +5,8 @@ import Mcq from './Mcq.vue';
   <div class="container justify-content-center">
 
     <div class="row g-10 w-100 " id="question-index">
-      <div class="col-lg-8 section" id="questionBox">
+      <div class="col-lg-12 section" id="questionBox">
         <Mcq />
-      </div>
-      <div class="col-lg-4 section" id="formBox">
-        {% include 'qcm/question/topic.html' %}
       </div>
     </div>
 
