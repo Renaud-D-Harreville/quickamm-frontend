@@ -8,7 +8,8 @@ here is the deployed app running using Google Cloud Platform (GCP): **[Quick AMM
 
 ### ⛰️ The Challenge
 
-The "Accompagnateur en montagne" (AEM) diploma requires candidates to pass an MCQ test at the very beginning of the course. Most existing preparation tools use static questions, where the questions and answers are always in the same order.
+The "Accompagnateur en moyenne montagne" (AMM) diploma requires candidates to pass an MCQ test at the very beginning of the course. 
+Most existing preparation tools use static questions, where the questions and answers are always in the same order.
 
 This leads to a common problem: **candidates start to memorize the *pattern* of the answers rather than *understanding* the concepts.**
 
@@ -51,7 +52,7 @@ To run this project locally:
 
 1.  **Clone the repository:**
     ```sh
-    git clone [https://github.com/Renaud-D-Harreville/quickamm-frontend.git](https://github.com/Renaud-D-Harreville/quickamm-frontend.git)
+    git clone https://github.com/Renaud-D-Harreville/quickamm-frontend.git
     cd quickamm-frontend
     ```
 
