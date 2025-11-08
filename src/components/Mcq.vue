@@ -136,6 +136,14 @@ function showHideLongExplanation() {
       <button type="button" @click="validateAnswers()">Valider</button>
     </div>
   </div>
+  <p></p>
+  <div class="row justify-content-center">
+    <div class="col-auto text-center" id="button-new-question">
+      <button @click="fetchData()" class="mx-auto d-block" >
+        Nouvelle question
+      </button>
+    </div>
+  </div>
   <div class="row">
     <div class="long-explanation">
       <!-- Texte collapsible -->
@@ -265,6 +273,19 @@ p {
 
     #question-result-icon {
         font-size: 60px;
+    }
+
+    #button-new-question button {
+      background-color: #a9b1a9;
+        color: black;
+        padding: 10px 20px;
+        border: 1px solid black;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #button-new-question button:hover {
+      background-color: #909790;
     }
 
 

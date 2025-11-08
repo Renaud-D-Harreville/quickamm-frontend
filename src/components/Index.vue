@@ -3,13 +3,11 @@ import Mcq from './Mcq.vue';
 </script>
 <template>
   <div class="container justify-content-center">
-
     <div class="row g-10 w-100 " id="question-index">
       <div class="col-lg-12 section" id="questionBox">
         <Mcq />
       </div>
     </div>
-
   </div>
 </template>
 
@@ -51,7 +49,7 @@ import Mcq from './Mcq.vue';
           height: 100%; /* Uniformise la hauteur */
       }
 
-      #fixed-row input[type="submit"] {
+      #fixed-row button {
           margin: 0; /* Supprime les marges par défaut */
           transform: translateY(-0px); /* Ajuster légèrement si c'est encore désaligné */
       }
