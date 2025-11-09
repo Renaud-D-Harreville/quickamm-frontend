@@ -1,11 +1,11 @@
 <script setup lang="ts">
 
-import { ref, reactive, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 
 interface Answer {
   id: number;
   text: string;
-  is_true?: boolean;
+  is_true: boolean;
   explanation: string;
   checked?: boolean;
   isOpen?: boolean;
@@ -19,16 +19,16 @@ interface Reference {
 interface Question {
   question: string;
   image_path?: string
-  description?: string;
+  description: string;
   answers: Answer[];
   references: Reference[];
 }
-// -----------------------------
 
 
-// On type le 'ref' : il peut contenir une Question ou être null
 const question = ref<Question | null>(null);
-// const question = ref(null);
+const isOpen = ref(false)
+const isValidateState = ref(false)
+const isFormCorrect = ref(true)
 
 async function fetchData() {
   try {
@@ -45,9 +45,6 @@ async function fetchData() {
       answer.checked = false
       answer.isOpen = false
     })
-    console.log(jsonData)
-
-
     question.value = jsonData;
 
   } catch (e) {
@@ -59,14 +56,6 @@ async function fetchData() {
   }
 }
 
-onMounted(() => {
-  fetchData();
-});
-
-const isValidateState = ref(false)
-const isFormCorrect = ref(true)
-
-
 function validateAnswers() {
     isValidateState.value = true
     if (!question.value) return;
@@ -76,16 +65,16 @@ function validateAnswers() {
     console.log(question.value.answers)
     isFormCorrect.value = all_correct
     console.log(isFormCorrect.value)
-
 }
-
 
 function newQuestion() {
   fetchData()
   isValidateState.value = false
 }
 
-const isOpen = ref(false)
+onMounted(() => {
+  fetchData();
+});
 
 </script>
 
