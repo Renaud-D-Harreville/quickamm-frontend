@@ -1,58 +1,24 @@
 <script setup lang="ts">
 
 import { ref, onMounted } from 'vue'
-
-interface Answer {
-  id: number;
-  text: string;
-  is_true: boolean;
-  explanation: string;
-  checked?: boolean;
-  isOpen?: boolean;
-}
-
-interface Reference {
-  url: string
-  description: string
-}
-
-interface Question {
-  question: string;
-  image_path?: string
-  description: string;
-  answers: Answer[];
-  references: Reference[];
-}
-
+import type { Question } from '@/scripts/models'
+import {fetchRandomQuestion} from "@/scripts/apis.ts";
 
 const question = ref<Question | null>(null);
-const isOpen = ref(false)
+const isLongExplanationOpen = ref(false)
 const isValidateState = ref(false)
 const isFormCorrect = ref(true)
 
 async function fetchData() {
   try {
-
-    const response = await fetch('https://quickamm-fastapi-615761139088.europe-west1.run.app/random_question'); 
-
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-
-    const jsonData: Question = await response.json();
-
-    jsonData.answers.forEach(answer => {
+    const fetchedQuestion = await fetchRandomQuestion();
+    fetchedQuestion.answers.forEach(answer => {
       answer.checked = false
       answer.isOpen = false
     })
-    question.value = jsonData;
-
-  } catch (e) {
-    if (e instanceof Error) {
-      console.log(" error while requesting api : ", e.message);
-    } else {
-      console.log(" an unknown error occurred: ", e);
-    }
+    question.value = fetchedQuestion;
+  } catch (e: any) {
+    console.log(e.message || 'Failed to fetch question')
   }
 }
 
@@ -144,10 +110,10 @@ onMounted(() => {
   </div>
   <div class="row">
     <div v-if="isValidateState">
-      <button @click="isOpen = !isOpen">
-        {{ isOpen ? 'Collapse' : 'Expand' }}
+      <button @click="isLongExplanationOpen = !isLongExplanationOpen">
+        {{ isLongExplanationOpen ? 'Collapse' : 'Expand' }}
       </button>
-      <div v-if="isOpen">
+      <div v-if="isLongExplanationOpen">
         <span>{{ question.description }}</span>
         <div v-if="question.references">
             <h2> Réferences : </h2>
