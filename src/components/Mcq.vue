@@ -16,6 +16,7 @@ async function fetchData() {
 
     jsonData.answers.forEach(answer => {
       answer.checked = false
+      answer.isOpen = false
     })
     console.log(jsonData)
 
@@ -32,12 +33,6 @@ fetchData();
 const isValidateState = ref(false)
 const isFormCorrect = ref(true)
 
-function displayLongExplanation() {
-        const collapseButtons = document.querySelectorAll('.long-explanation');
-        collapseButtons.forEach(button => {
-            button.classList.add('visible');
-        });
-    }
 
 function validateAnswers() {
     isValidateState.value = true
@@ -48,32 +43,15 @@ function validateAnswers() {
     isFormCorrect.value = all_correct
     console.log(isFormCorrect.value)
 
-    displayLongExplanation()
-
-    showHideLongExplanation()
 }
 
-// TODO : use Vue events to do this 
 
-function showHideLongExplanation() {
-// Ajout de JavaScript pour basculer entre les états
-    const toggleButton = document.getElementById("toggleButton");
-    const previewText = document.getElementById("previewText");
-    const collapseText = document.getElementById("collapseText");
-
-    toggleButton.addEventListener("click", () => {
-        // Si le texte complet est visible, le cacher
-        if (collapseText.classList.contains("show")) {
-            collapseText.classList.remove("show");
-            previewText.style.display = "-webkit-box"; // Réaffiche l'aperçu
-            toggleButton.innerText = "Lire plus";
-        } else {
-            collapseText.classList.add("show");
-            previewText.style.display = "none"; // Masque l'aperçu
-            toggleButton.innerHTML = "Lire moins";
-        }
-    });
+function newQuestion() {
+  fetchData()
+  isValidateState.value = false
 }
+
+const isOpen = ref(false)
 
 </script>
 
@@ -111,17 +89,14 @@ function showHideLongExplanation() {
                 <label :for="`option-${index}`">{{ option.text }}</label>
               </div>
               <div class="col-1">
-                <button v-if="!isValidateState" type="button" class="collapse-button" data-bs-toggle="collapse"
-                        :data-bs-target="`#description-${index}`">▾
-                </button>
-                <button v-else type="button" class="collapse-button" data-bs-toggle="collapse"
-                        :data-bs-target="`#description-${index}`" style="display: inline-block;">▾
-                </button>
+                <div v-if="isValidateState">
+                  <button type="button" @click="option.isOpen = !option.isOpen" style="display: inline-block;">▾</button>
+                </div>
               </div>
             </div>
             <div class="row">
               <div class="col-12">
-                <div :id="`description-${index}`" class="collapse">
+                <div v-if="option.isOpen">
                   <span>{{ option.explanation }}</span>
                 </div>
               </div>
@@ -139,15 +114,17 @@ function showHideLongExplanation() {
   <p></p>
   <div class="row justify-content-center">
     <div class="col-auto text-center" id="button-new-question">
-      <button @click="fetchData()" class="mx-auto d-block" >
+      <button @click="newQuestion()" class="mx-auto d-block" >
         Nouvelle question
       </button>
     </div>
   </div>
   <div class="row">
-    <div class="long-explanation">
-      <!-- Texte collapsible -->
-      <div id="collapseText" class="collapse">
+    <div v-if="isValidateState">
+      <button @click="isOpen = !isOpen">
+        {{ isOpen ? 'Collapse' : 'Expand' }}
+      </button>
+      <div v-if="isOpen">
         <span>{{ question.description }}</span>
         <div v-if="question.references">
             <h2> Réferences : </h2>
@@ -156,14 +133,6 @@ function showHideLongExplanation() {
             </p>
         </div>
       </div>
-      <!-- Texte aperçu (visible par défaut) -->
-      <div id="previewText" class="text-preview">
-        <span>{{ question.description }}</span>
-      </div>
-      <!-- Bouton pour basculer entre l'aperçu et le texte complet -->
-      <button class="btn btn-link mt-2 p-0" id="toggleButton">
-        Lire plus...
-      </button>
     </div>
   </div>
 </div>
@@ -183,19 +152,6 @@ p {
         margin: 0 auto; /* Centrage horizontal si nécessaire */
         border-radius: 20px !important;
     }
-
-    .long-explanation {
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transition: max-height 1s, opacity 1s;
-    }
-
-    .long-explanation.visible {
-        max-height: fit-content; /* Définir une hauteur suffisante pour contenir le contenu */
-        opacity: 1;
-    }
-
 
 
     .result-icon {
@@ -220,11 +176,6 @@ p {
 
     #question-mcq .option input {
         display: none;
-    }
-
-    #question-mcq .collapse-button {
-        display: none;
-        transition: all 1s .5s;
     }
 
     #question-mcq .option label {
@@ -261,15 +212,6 @@ p {
         background-color: #22c328;
     }
 
-
-    /* Limite l'aperçu initial à deux lignes */
-    .text-preview {
-        display: -webkit-box;
-        -webkit-line-clamp: 2; /* Limite à 2 lignes */
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
 
     #question-result-icon {
         font-size: 60px;
