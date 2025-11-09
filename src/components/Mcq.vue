@@ -1,8 +1,35 @@
-<script setup>
+<script setup lang="ts">
 
 import { ref, reactive, onMounted } from 'vue'
 
-const question = ref(null);
+interface Answer {
+  id: number;
+  text: string;
+  is_true?: boolean;
+  explanation: string;
+  checked?: boolean;
+  isOpen?: boolean;
+}
+
+interface Reference {
+  url: string
+  description: string
+}
+
+interface Question {
+  question: string;
+  image_path?: string
+  description?: string;
+  answers: Answer[];
+  references: Reference[];
+}
+// -----------------------------
+
+
+// On type le 'ref' : il peut contenir une Question ou être null
+const question = ref<Question | null>(null);
+// const question = ref(null);
+
 async function fetchData() {
   try {
 
@@ -12,7 +39,7 @@ async function fetchData() {
       throw new Error('Network response was not ok');
     }
 
-    const jsonData = await response.json();
+    const jsonData: Question = await response.json();
 
     jsonData.answers.forEach(answer => {
       answer.checked = false
@@ -24,11 +51,17 @@ async function fetchData() {
     question.value = jsonData;
 
   } catch (e) {
-    console.log(" error while requesting api : ", e.message);
+    if (e instanceof Error) {
+      console.log(" error while requesting api : ", e.message);
+    } else {
+      console.log(" an unknown error occurred: ", e);
+    }
   }
 }
 
-fetchData();
+onMounted(() => {
+  fetchData();
+});
 
 const isValidateState = ref(false)
 const isFormCorrect = ref(true)
@@ -36,6 +69,7 @@ const isFormCorrect = ref(true)
 
 function validateAnswers() {
     isValidateState.value = true
+    if (!question.value) return;
     const all_correct = question.value.answers.every(option => {
         return option.is_true === option.checked
     })

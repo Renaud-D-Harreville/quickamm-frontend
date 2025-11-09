@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import Mcq from './Mcq.vue';
 </script>
 <template>
