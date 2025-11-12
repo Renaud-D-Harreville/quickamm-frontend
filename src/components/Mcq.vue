@@ -38,6 +38,7 @@ function validateAnswers() {
 function newQuestion() {
   fetchData()
   isValidateState.value = false
+  isLongExplanationOpen.value = false
 }
 
 onMounted(() => {
@@ -132,6 +133,7 @@ onMounted(() => {
 </template>
 
 <style>
+
 p {
   font-family: verdana;
   font-size: 15px;
@@ -144,7 +146,6 @@ p {
         margin: 0 auto; /* Centrage horizontal si nécessaire */
         border-radius: 20px !important;
     }
-
 
     .result-icon {
         font-size: 25px;
@@ -221,6 +222,4 @@ p {
     #button-new-question button:hover {
       background-color: #909790;
     }
-
-
 </style>
