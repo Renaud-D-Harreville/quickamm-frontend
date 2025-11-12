@@ -6,21 +6,20 @@
   <body>
   <header>
     <router-link to="/" aria-label="Home">
-      <HomeIcon />
+      <HomeIcon />QuickAMM
     </router-link>
-    <div>
-      <h1>QuickAMM</h1>
-      <h2>Une application pour réviser le probatoire AMM</h2>
-    </div>
+
+            <h1>QuickAMM</h1>
     <nav>
-      <router-link to="/" aria-label="Home">
-      <HomeIcon />
-    </router-link>
       <router-link to="/about" aria-label="About">
-        <AboutIcon />
+        <AboutIcon />A propos
       </router-link>
       </nav>
+
   </header>
+    <div id="sub-header">
+      <h2>Une application pour réviser le probatoire AMM</h2>
+    </div>
   <main>
     <RouterView />
   </main>
@@ -32,15 +31,22 @@
 </template>
 
 <style>
-/* You can keep global styles, but your #nav rules are replaced */
 
 header {
   display: flex;
   justify-content: space-between; /* <-- This is the magic! */
   align-items: center;           /* Vertically centers the icons */
-  padding: 20px 30px;
-  border-bottom: 1px solid #eaeaea;
-  background-color: #fff;
+  padding: 20px 0px;
+  border-bottom: 0px solid #eaeaea;
+  background-color: #333;
+}
+
+#sub-header {
+  padding: 20px 0px;
+  border-bottom: 0px solid #eaeaea;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
 }
 
 nav {
@@ -51,7 +57,7 @@ nav {
 
 header a {
   /* This styles *all* links in the header (both home and nav) */
-  color: #2c3e50; /* Default icon color */
+  color: orange; /* Default icon color */
   text-decoration: none;
 }
 
@@ -68,15 +74,15 @@ header a svg {
 }
 
 header a:hover {
-  color: #42b983; /* Set the hover color */
+  color: #e6a605; /* Set the hover color */
 }
 
-/* This is YOUR original active style!
-  Thanks to 'fill: currentColor', it will now color
-  the active SVG icon green.
-*/
 header a.router-link-exact-active {
-  color: #42b983;
+  color: orange;
+}
+
+header a.router-link-exact-active:hover {
+  color: #e6a605;
 }
 
     html, body {
@@ -89,12 +95,8 @@ header a.router-link-exact-active {
         background-color: #f9f9f9;
     }
 
-    header {
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        padding: 20px 0;
-    }
+
+
     /* La section principale occupe tout l'espace disponible */
     main {
         flex: 1;
@@ -124,5 +126,3 @@ input[type="submit"]:hover {
     color: #000000;
 }
 </style>
-  <script setup lang="ts">
-  </script>
