@@ -110,10 +110,11 @@ onMounted(() => {
       </button>
     </div>
   </div>
+  <p></p>
   <div class="row">
     <div v-if="isValidateState">
       <button @click="isLongExplanationOpen = !isLongExplanationOpen">
-        {{ isLongExplanationOpen ? 'Collapse' : 'Expand' }}
+        {{ isLongExplanationOpen ? 'Aller plus loin' : 'Aller plus loin...' }}
       </button>
       <div v-if="isLongExplanationOpen">
         <span>{{ question.description }}</span>
