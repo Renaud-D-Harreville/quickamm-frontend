@@ -7,16 +7,16 @@ import AboutIcon from "@/assets/icons/AboutIcon.vue";
   <header>
     <div class="container justify-content-center">
       <div class="row g-10 w-100">
-        <div class="col-lg-3 section">
+        <div class="col-lg-3 section" id="left-header">
           <router-link to="/" aria-label="Home">
             <HomeIcon />QuickAMM
           </router-link>
         </div>
-        <div class="col-lg-6 section">
+        <div class="col-lg-6 section" id="center-header">
           <h1>QuickAMM</h1>
           <h2>Une application pour réviser le probatoire AMM</h2>
         </div>
-        <div class="col-lg-3 section">
+        <div class="col-lg-3 section" id="right-header">
           <nav>
             <router-link to="/about" aria-label="About">
               <AboutIcon />A propos
@@ -31,6 +31,7 @@ import AboutIcon from "@/assets/icons/AboutIcon.vue";
 <style scoped>
 
 header {
+  flex: 1;
   align-content: center;
   padding: 20px;
   background-color: #333;
@@ -49,5 +50,13 @@ header a svg {
 
 header a:hover {
   color: #e6a605;
+}
+
+#left-header {
+  text-align: left;
+}
+
+#right-header {
+  text-align: right;
 }
 </style>

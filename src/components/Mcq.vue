@@ -52,14 +52,19 @@ onMounted(() => {
 <div v-if="!question">Loading question</div>
 <div v-else class="container" id="question-mcq">
   <div class="row">
-    <div class="col-10">
+    <div class="col-2 question-icon">
+      <span v-if="!isValidateState" class="question-mark">?</span>
+      <span v-else-if="isValidateState && isFormCorrect" class="correct">✔</span>
+      <span v-else-if="isValidateState && !isFormCorrect" class="wrong">✖</span>
+    </div>
+    <div class="col-8">
       <h2>Question</h2>
       <p>{{ question.question }}</p>
     </div>
-    <div class="col-2 align-items-center">
-      <span v-if="!isValidateState" id="question-result-icon">&nbsp;</span>
-      <span v-else-if="isValidateState && isFormCorrect" id="question-result-icon" class="correct">✔</span>
-      <span v-else-if="isValidateState && !isFormCorrect" id="question-result-icon" class="wrong">✖</span>
+    <div class="col-2 align-items-center question-icon">
+      <span v-if="!isValidateState"  class="question-mark">?</span>
+      <span v-else-if="isValidateState && isFormCorrect" class="correct">✔</span>
+      <span v-else-if="isValidateState && !isFormCorrect" class="wrong">✖</span>
     </div>
 
   </div>
@@ -163,6 +168,14 @@ p {
         opacity: 1;
     }
 
+    .question-icon {
+      font-size: 60px;
+      text-align: center;
+    }
+    .question-mark {
+      color: grey;
+    }
+
     #question-mcq .option {
         margin: 10px 0;
     }
@@ -203,11 +216,6 @@ p {
 
     #question-mcq button:hover {
         background-color: #22c328;
-    }
-
-
-    #question-result-icon {
-        font-size: 60px;
     }
 
     #button-new-question button {
