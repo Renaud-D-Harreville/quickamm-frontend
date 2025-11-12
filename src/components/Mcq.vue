@@ -9,6 +9,7 @@ const isLongExplanationOpen = ref(false)
 const isValidateState = ref(false)
 const isFormCorrect = ref(true)
 
+
 async function fetchData() {
   try {
     const fetchedQuestion = await fetchRandomQuestion();
@@ -21,6 +22,7 @@ async function fetchData() {
     console.log(e.message || 'Failed to fetch question')
   }
 }
+
 
 function validateAnswers() {
     isValidateState.value = true
