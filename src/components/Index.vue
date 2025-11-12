@@ -12,24 +12,12 @@ import Mcq from './Mcq.vue';
 </template>
 
 <style scoped>
-      #questionBox {
-      }
 
-      #formBox {
-      }
 
       @media (max-width: 320px) {
           .element {
               width: 90%;
           }
-      }
-
-      #fixed-row {
-          position: fixed; /* Le bouton reste visible à une position fixe */
-          bottom: 30px; /* Place le bouton 20px au-dessus du bas de l'écran */
-          left: 50%; /* Centre horizontalement */
-          transform: translateX(-50%); /* Centrer correctement le conteneur */
-          z-index: 1000; /* S’assure que le bouton est au-dessus du reste du contenu */
       }
 
       #fixed-row .correct {
@@ -53,17 +41,4 @@ import Mcq from './Mcq.vue';
           margin: 0; /* Supprime les marges par défaut */
           transform: translateY(-0px); /* Ajuster légèrement si c'est encore désaligné */
       }
-
-      #big-result-icon {
-          margin: 0; /* Supprimez les marges inutiles pour éviter le décalage */
-      }
-/* End of adjusting */
-
-    #big-result-icon {
-        font-size: 60px;
-        opacity: 0;
-        transition: opacity 1s;
-    }
-
-
   </style>
