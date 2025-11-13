@@ -1,54 +1,54 @@
 <template>
   <div class="about-container">
     <header class="about-header">
-      <h1>About Quickamm</h1>
+      <h1>À propos de Quickamm</h1>
       <p class="tagline">
-        A smart MCQ platform to help you prepare for the "Accompagnateur en montagne" (AEM) hiking guide diploma.
+        Une plateforme de QCM intelligente conçue pour vous aider à préparer le diplôme d'Accompagnateur en Montagne (AEM).
       </p>
     </header>
 
     <section class="content-section">
-      <h2>⛰️ The Challenge: Learning the Trail, Not the Test</h2>
+      <h2>⛰️ Le Défi : Mémoriser les concepts, pas le test</h2>
       <p>
-        The "Accompagnateur en moyenne montagne" (AMM) diploma requires candidates to pass an MCQ test at the very beginning of the course.
-        Most existing preparation tools use static questions, where the questions and answers are always in the same order.
+        Le diplôme d'Accompagnateur en Moyenne Montagne (AMM) exige des candidats qu'ils réussissent un QCM au tout début de leur formation.
+        La plupart des outils de préparation existants utilisent des questions statiques, où les questions et les réponses sont toujours dans le même ordre.
       </p>
       <p class="highlight">
-        This leads to a common problem: <strong>candidates start to memorize the <em>pattern</em> of the answers rather than <em>understanding</em> the concepts.</strong>
+        Cela conduit à un problème courant : <strong>les candidats commencent à mémoriser <em>l'ordre</em> des réponses plutôt que de <em>comprendre</em> les concepts.</strong>
       </p>
     </section>
 
     <section class="content-section">
-      <h2>✨ Our Solution: Train Smarter</h2>
+      <h2>✨ Notre Solution : S'entraîner plus intelligemment</h2>
       <p>
-        Quickamm was built to solve this exact problem by focusing on two core principles: <strong>smart randomization</strong> and <strong>detailed explanations</strong>.
+        Quickamm a été conçu pour résoudre ce problème précis en se concentrant sur deux principes fondamentaux : <strong>la randomisation intelligente</strong> et <strong>les explications détaillées</strong>.
       </p>
       <p>
-        It began as a simple command-line tool (hence the name "Quick"), but has been rebuilt as this modern web application to help more candidates succeed.
+        Le projet a commencé comme un simple outil en ligne de commande (d'où le nom "Quick"), mais a été reconstruit en tant qu'application web moderne pour aider plus de candidats à réussir.
       </p>
     </section>
 
     <section class="features-section">
-      <h2>🎯 Key Features</h2>
+      <h2>🎯 Fonctionnalités Clés</h2>
       <div class="features-grid">
 
         <div class="feature-card">
-          <h3>🧠 Smart Randomization</h3>
-          <p>To prevent "learning the test" by heart, Quickamm dynamically builds every question:</p>
+          <h3>🧠 Randomisation Intelligente</h3>
+          <p>Pour éviter "d'apprendre le test" par cœur, Quickamm construit dynamiquement chaque question :</p>
           <ul>
-            <li><strong>Random Answer Order:</strong> The order of potential answers is shuffled every time.</li>
-            <li><strong>Dynamic Answer Pool:</strong> The algorithm pulls from a large bank of answers and selects at least one correct answer and several incorrect ones.</li>
-            <li><strong>Massive Variety:</strong> This creates a huge number of unique question combinations, making it highly unlikely you'll see the exact same question twice.</li>
+            <li><strong>Ordre des réponses aléatoire :</strong> L'ordre des réponses possibles est mélangé à chaque fois.</li>
+            <li><strong>Banque de réponses dynamique :</strong> L'algorithme puise dans une large banque de réponses et sélectionne au moins une réponse correcte et plusieurs réponses incorrectes.</li>
+            <li><strong>Variété massive :</strong> Cette approche crée un très grand nombre de combinaisons de questions uniques, rendant très improbable de revoir deux fois la même question.</li>
           </ul>
         </div>
 
         <div class="feature-card">
-          <h3>📚 Detailed Explanations</h3>
-          <p>Passing the test isn't just about getting the right answer; it's about knowing <em>why</em> it's right.</p>
+          <h3>📚 Explications Détaillées</h3>
+          <p>Réussir le test ne consiste pas seulement à trouver la bonne réponse ; il s'agit de savoir <em>pourquoi</em> elle est correcte.</p>
           <ul>
-            <li><strong>Question Explanations:</strong> After you answer, you get a detailed explanation for the question as a whole.</li>
-            <li><strong>Per-Answer Feedback:</strong> Each individual answer (both correct and incorrect) also includes a short explanation.</li>
-            <li><strong>Go Deeper:</strong> To encourage further learning, explanations include references so you can read more about the topics.</li>
+            <li><strong>Explications par question :</strong> Après avoir répondu, vous obtenez une explication détaillée pour la question dans son ensemble.</li>
+            <li><strong>Feedback par réponse :</strong> Chaque réponse individuelle (correcte ou incorrecte) inclut également une courte explication.</li>
+            <li><strong>Aller plus loin :</strong> Pour encourager l'apprentissage, les explications incluent des références pour en savoir plus sur le sujet.</li>
           </ul>
         </div>
       </div>
@@ -56,8 +56,8 @@
 
     <section class="content-section tech-note">
       <p>
-        This website is the frontend of a two-part project. It gets all its questions and logic from the
-        <a href="https://github.com/Renaud-D-Harreville/quickamm-fastapi" target="_blank" rel="noopener noreferrer">Quickamm FastAPI Backend</a>.
+        Ce site web est le "frontend" d'un projet en deux parties. Il récupère toutes ses questions et sa logique depuis le
+        <a href="https://github.com/Renaud-D-Harreville/quickamm-fastapi" target="_blank" rel="noopener noreferrer">Backend FastAPI Quickamm</a>.
       </p>
     </section>
 
@@ -65,6 +65,7 @@
 </template>
 
 <style scoped>
+/* Les styles sont identiques à la version anglaise */
 /* Scoped CSS means these styles will *only* apply to this component */
 
 .about-container {
